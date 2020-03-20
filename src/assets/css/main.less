@@ -1,0 +1,464 @@
+// font-size
+@base-size: 1px;
+.fontSize(@n) when (@n > 11) {
+  .size@{n} {
+    font-size: @n*@base-size;
+  }
+  .fontSize((@n - 1));
+}
+.fontSize(40);
+
+// menu
+.ivu-menu-dark {
+  background: transparent;
+}
+
+.ivu-menu-dark.ivu-menu-vertical .ivu-menu-child-item-active > .ivu-menu-submenu-title {
+  color: @menu-dark-subsidiary-color;
+}
+
+.ivu-menu-dark.ivu-menu-vertical .ivu-menu-opened {
+  background: transparent;
+}
+
+.ivu-menu-dark.ivu-menu-vertical .ivu-menu-item:hover,
+.ivu-menu-dark.ivu-menu-vertical .ivu-menu-submenu .ivu-menu-item:hover,
+.ivu-menu-dark.ivu-menu-vertical .ivu-menu-submenu-title:hover {
+  color: @text-color;
+  background: transparent;
+}
+
+.ivu-menu-dark.ivu-menu-vertical .ivu-menu-submenu .ivu-menu-item-active,
+.ivu-menu-dark.ivu-menu-vertical .ivu-menu-submenu .ivu-menu-item-active:hover,
+.ivu-menu-dark.ivu-menu-vertical .ivu-menu-item-active:not(.ivu-menu-submenu),
+.ivu-menu-dark.ivu-menu-horizontal .ivu-menu-item-active,
+.ivu-menu-horizontal .ivu-menu-submenu .ivu-select-dropdown .ivu-menu-item-selected,
+.ivu-menu-horizontal .ivu-menu-submenu .ivu-select-dropdown .ivu-menu-item-selected:hover {
+  color: @primary-color;
+  background: rgb(250, 250, 250);
+}
+
+// size=large 控件高度为40
+.ivu-checkbox-large .ivu-checkbox-group-item,
+.ivu-radio-group-large .ivu-radio-group-item,
+.ivu-select-large.ivu-select-multiple .ivu-select-input,
+.ivu-select-large.ivu-select-single .ivu-select-selection,
+.ivu-select-large.ivu-select-single .ivu-select-selection .ivu-select-selected-value {
+  font-size: 14px;
+  .height_40();
+}
+
+// InputNumber
+.ivu-input-number-large {
+  width: 100%;
+}
+
+// radio
+.ivu-radio-checked .ivu-radio-inner {
+  background: rgb(236, 243, 253);
+}
+
+.ivu-radio-large .ivu-radio-inner:after {
+  width: 6px;
+  height: 6px;
+}
+
+.ivu-radio-inner:after {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+}
+
+// checkbox
+.ivu-checkbox {
+  margin-right: 4px;
+}
+
+// select size=large
+.ivu-select-large.ivu-select-multiple {
+  .ivu-tag {
+    width: auto;
+    span {
+      display: inline-block;
+    }
+    i {
+      font-size: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.ivu-select-large .ivu-select-arrow {
+  font-size: 20px;
+  color: @icon-color;
+}
+
+.ivu-select-disabled .ivu-select-selection {
+  border-color: @icon-color;
+}
+
+.ivu-select-visible .ivu-select-selection,
+.ivu-select-selection:hover,
+.ivu-select-selection-focused,
+.ivu-cascader-visible,
+.ivu-cascader:hover {
+  border-color: @primary-color;
+  box-shadow: unset;
+
+  .ivu-cascader-rel {
+    .ivu-input {
+      border-color: @primary-color;
+      box-shadow: unset;
+    }
+  }
+
+  .ivu-icon {
+    color: @primary-color;
+  }
+}
+
+.ivu-select-item-selected,
+.ivu-select-item-selected:hover,
+.ivu-select-item:hover {
+  color: @text-color;
+  background: tint(@primary-color, 90%);
+}
+
+.ivu-select-dropdown {
+  .scroller();
+  text-align: left;
+}
+
+// treeselect
+.vue-treeselect__control {
+  height: 40px;
+  line-height: 1.5;
+  font-size: 14px;
+  border-color: @border-color-base;
+}
+.vue-treeselect__placeholder, .vue-treeselect__single-value {
+  line-height: 40px;
+}
+
+.vue-treeselect--single .vue-treeselect__option--selected {
+  color: @primary-color;
+  background-color: rgb(235, 247, 255);
+}
+
+.vue-treeselect__option--highlight {
+  background-color: rgb(235, 247, 255);
+}
+
+// datePicker
+.ivu-date-picker {
+  width: 100%;
+
+  .ivu-picker-panel-shortcut {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  .ivu-picker-confirm {
+    button:last-of-type {
+      margin-left: 4px;
+    }
+  }
+}
+
+// button
+.ivu-btn {
+  height: 32px;
+  font-size: 14px;
+  span, i {
+    .middle();
+  }
+  &.center {
+    .flex(center);
+  }
+
+  &.ivu-btn-small {
+    height: 28px;
+    font-size: 12px;
+  }
+
+  &.ivu-btn-large {
+    height: 40px;
+  }
+}
+
+// table
+.ivu-table-wrapper {
+  th, td {
+    border-color: @border-color-base;
+    font-size: 14px;
+    font-family: @font-family;
+    font-weight: 400;
+    .ivu-checkbox {
+      margin-right: 0;
+      margin-top: -2px;
+      .ivu-checkbox-inner {
+        width: 16px;
+        height: 16px;
+        border-color: @border-color-base;
+        &.ivu-checkbox-focus {
+          box-shadow: none;
+        }
+      }
+      &.ivu-checkbox-checked {
+        .ivu-checkbox-inner {
+          border-color: tint(@primary-color, 50%);
+          background-color: tint(@primary-color, 80%);
+          &:after {
+            border-color: @primary-color;
+            top: 2px;
+            left: 5px;
+          }
+        }
+      }
+    }
+    .ivu-table-cell {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+  th {
+    color: @table-thead-color;
+    border-color: @border-color-base;
+  }
+  td {
+    height: 40px;
+    .multiple {
+      display: inline-block;
+      max-width: 100px;
+      color: @text-color;
+      margin: 4px 4px 4px 0;
+      border: 1px solid #eae6e6;
+      border-radius: 2px;
+      padding: 2px 4px;
+    }
+    .media {
+      margin: 4px 4px 4px 0;
+      border: 1px solid #eae6e6;
+      border-radius: 2px;
+      padding: 2px;
+      cursor: pointer;
+      color: @text-color;
+      .middle();
+      span {
+        width: 40px;
+        height: 40px;
+        background-size: 100% 100%;
+        .middle();
+      }
+    }
+    .editor {
+      padding: 4px 0;
+      img {
+        max-width: 40px;
+      }
+    }
+    // 操作栏icon
+    .table-action-icon {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      color: @icon-color;
+      margin-right: 4px;
+      &:hover {
+        color: @primary-color;
+      }
+    }
+  }
+  .ivu-table-row.ivu-table-row-highlight {
+    td {
+      background-color: tint(@primary-color, 0);
+      color: @white-color;
+    }
+  }
+}
+
+// pagination
+.ivu-page {
+  .ivu-page-total {
+    vertical-align: middle;
+  }
+
+  .ivu-page-options-elevator {
+    .height_40();
+  }
+
+  .ivu-page-item.ivu-page-item-active {
+    background-color: @primary-color;
+    color: @background-color-base;
+    border-radius: 2px;
+
+    a {
+      color: #fff;
+    }
+  }
+}
+
+// tag
+.ivu-tag {
+  width: 100px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 2px;
+  margin: 0 6px 0 0;
+  padding: 0 8px;
+  text-align: center;
+  &.ivu-tag-dot {
+    border-color: @primary-color !important;
+    .ivu-tag-text, .ivu-icon.ivu-icon-ios-close {
+      color: @primary-color !important;
+    }
+    .ivu-tag-text {
+      color: @primary-color;
+    }
+    .ivu-icon.ivu-icon-ios-close {
+      margin-left: -2px !important;
+    }
+  }
+  span, i {
+    .middle();
+  }
+  .ivu-tag-dot-inner {
+    width: 4px;
+    height: 4px;
+    margin-right: 0;
+    top: -1px;
+    background-color: @primary-color;
+  }
+
+  .ivu-tag-text {
+    max-width: 60px;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(109, 114, 132, 1);
+    margin: -2px 5px 0;
+    .ellipse();
+  }
+
+  .ivu-icon.ivu-icon-ios-close {
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+// $modal
+.ivu-modal-confirm {
+  .ivu-modal-confirm-footer {
+    .ivu-btn {
+      &.ivu-btn-text {
+        border: 1px solid @border-color-base;
+
+        &:hover {
+          border-color: @primary-color;
+        }
+      }
+
+      &.ivu-btn-large {
+        height: 28px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+// 组织权限表格必填星号符
+.required-color {
+  color: @warning-color;
+  font-weight: 500;
+}
+
+// 列表型高级控件(子表,关联多选列表)
+.senior-table {
+  width: 100%;
+  position: relative;
+  padding: 8px;
+  margin-bottom: 8px;
+  &-head {
+    width: 100%;
+    margin-bottom: 10px;
+    .flex(space-between);
+    label {
+      font-size: 14px;
+    }
+    i {
+      cursor: pointer;
+      color: @icon-color;
+    }
+  }
+}
+
+// 控件只读样式
+.readonly:after {
+  width: 100%;
+  height: 100%;
+  content: "";
+  cursor: not-allowed;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, .4);
+  z-index: 3;
+}
+
+// 控件必选样式
+.required:before {
+  content: "*";
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1;
+  margin-right: 2px;
+  color: @error-color;
+  font-family: SimSun;
+}
+
+// 暂无数据提示字段基础样式
+.no-data-base {
+  width: 100%;
+  padding: 20px 0;
+  font-size: 14px;
+  text-align: center;
+  color: @icon-color;
+}
+
+// 加载icon
+.spin-icon-load {
+  font-size: 18px;
+  margin-right: 10px;
+  animation: ani-demo-spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -3px;
+}
+
+// 二次确认弹框
+.sure-modal {
+  text-align: center;
+  i {
+    color: @warning-color;
+    margin-right: 4px;
+  }
+  span, i {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+// 二维码弹框
+.erweima {
+  text-align: center;
+  img {
+    width: 120px;
+  }
+}
+
+

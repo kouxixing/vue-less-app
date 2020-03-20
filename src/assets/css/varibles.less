@@ -1,0 +1,176 @@
+// 字体,主题色
+@font-family: 'PingFang SC', 'Helvetica Neue', Helvetica, 'Hiragino Sans GB',
+  'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+@theme-color: linear-gradient(
+  307deg,
+  rgba(27, 185, 255, 1) 0%,
+  rgba(255, 27, 154, 1) 100%
+);
+// Color
+@primary-color: #007fff;
+@success-color: rgb(49, 175, 79);
+@processing-color: @primary-color;
+@warning-color: rgb(255, 150, 0);
+@error-color: rgb(219, 65, 69);
+@white-color: rgb(255, 255, 255);
+@selected-color: @primary-color;
+@link-color: @primary-color;
+@link-hover-color: @link-color;
+@icon-color: rgb(177, 179, 189);
+// text,title
+@title-color: rgba(30, 38, 66, 1);
+@text-color: @title-color;
+// Border color
+@border-color-base: rgb(232, 233, 236);
+@border-color-split: rgb(232, 234, 236);
+// background
+@background-color-base: @white-color;
+
+// layout
+@layout-header-height: 48px;
+@layout-header-background: rgb(21, 29, 54); // 头部背景色
+@layout-sider-background: #dadbdf; // 侧边栏背景色
+
+// menu
+@menu-width: 200px;
+@menu-min-width: 48px;
+@home-sider-width: 216px;
+@menu-toolbar-width: 50px;
+@menu-dark-title: transparent; // dark主题 菜单标题背景色
+@menu-dark-active-bg: #dadbdf; // dark主题 菜单组标题高亮背景色
+@menu-dark-subsidiary-color: #1e2642; // 菜单 标题色
+
+// Input
+@input-height-base: 32px;
+@input-height-large: 40px;
+@input-height-small: 28px;
+@input-padding-horizontal: 11px;
+@input-padding-vertical-base: 6px;
+@input-padding-vertical-small: 4px;
+@input-padding-vertical-large: 10px;
+
+@input-placeholder-color: rgba(177, 179, 189, 1);
+@input-color: rgba(30, 38, 66, 1);
+@input-border-color: rgb(234, 235, 237);
+@input-bg: rgb(255, 255, 255);
+@input-disabled-bg: rgb(245, 247, 250);
+@input-hover-border-color: @primary-color;
+
+// Button
+@btn-padding-base: 0 16px;
+@btn-padding-large: 0 24px;
+@btn-padding-small: 0 10px;
+@btn-padding-base-icon: 0 16px;
+@btn-padding-large-icon: 0 24px;
+@btn-padding-small-icon: 0 10px;
+
+@btn-default-color: rgba(74, 78, 91, 1);
+@btn-default-bg: @background-color-base;
+@btn-default-border: @border-color-base;
+
+@btn-primary-color: @white-color;
+@btn-primary-bg: @primary-color;
+
+@btn-success-color: @white-color;
+@btn-success-bg: @success-color;
+
+@btn-ghost-color: rgba(74, 78, 91, 1);
+@btn-ghost-bg: rgba(255, 255, 255, 1);
+@btn-ghost-border: @border-color-base;
+
+@table-thead-bg: rgb(245, 245, 246);
+@table-thead-color: rgb(109, 114, 132);
+@table-td-hover-bg: rgb(236, 243, 253);
+@table-td-highlight-bg: @background-color-base;
+
+//upload
+@upload-text-color: rgba(74, 78, 91, 1);
+@upload-button-text-color: rgba(151, 151, 151, 1);
+@upload-list-hover-bg: rgba(243, 243, 243, 1);
+
+.transitionAll() {
+  transition: all 0.2s ease-in-out;
+}
+.flex(@justify) {
+  display: flex;
+  align-items: center;
+  justify-content: @justify;
+}
+
+.middle() {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.ellipse() {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.linearGradient() {
+  background-image: linear-gradient(45deg, #3da1f0, #9464c9);
+}
+
+.height_40() {
+  height: 40px;
+  line-height: 40px;
+}
+
+// 自定义滚动条样式
+.scroller() {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 2px;
+    border-radius: 10px; /*外层*/
+  }
+  &::-webkit-scrollbar-thumb {
+    display: block;
+    width: 6px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background: #eae9e9; /*内层*/
+  }
+}
+.icon-logo {
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 100%;
+    background: rgba(38, 93, 191, 1);
+    margin-right: 8px;
+    transform: scaleY(0.9);
+    transform: translateY(20%);
+  }
+}
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 10px 0px;
+}
+
+.demo-spin-icon-load {
+  animation: ani-demo-spin 1s linear infinite;
+}
+@keyframes ani-demo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.demo-spin-col {
+  height: 100px;
+  position: relative;
+  border: 1px solid #eee;
+}
+.echarts {
+  width: 100%;
+  height: 100%;
+}

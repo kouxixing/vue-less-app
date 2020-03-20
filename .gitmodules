@@ -1,0 +1,4 @@
+[submodule "src/components/waterMap"]
+	path = src/components/waterMap
+	url = ssh://git@git.ascs.tech/basw/watermap.git
+	branch = develop
