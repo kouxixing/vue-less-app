@@ -1,19 +1,14 @@
-import axios from "axios/index";
-import {
-  VueBus,
-  REQUEST_ERR,
-  RESPONSE_ERR,
-  GLOBAL_MSG
-} from "../../eventBus/vueBus";
-import { baseUrl } from "./conf";
-import util from "../../utils/util";
+import axios from 'axios/index';
+import { VueBus, REQUEST_ERR, RESPONSE_ERR, GLOBAL_MSG } from '../../eventBus/vueBus';
+import { baseUrl } from './conf';
+import util from '../../utils/util';
 
 const Axios = axios.create({
   baseURL: baseUrl,
-  responseType: "json",
+  responseType: 'json',
   timeout: 20000, // 超时时长
   headers: {
-    "Content-Type": "application/json; charset=utf-8"
+    'Content-Type': 'application/json; charset=utf-8'
   }
 });
 /**
@@ -50,17 +45,17 @@ Axios.interceptors.request.use(
   config => {
     const conf = config;
     const token =
-      process.env.NODE_ENV === "production"
-        ? util.getCookie("token", window.top.document.cookie)
+      process.env.NODE_ENV === 'production'
+        ? util.getCookie('token', window.top.document.cookie)
         : // : null;
-          "54efc21b-464d-4ae7-93cb-4a44bcb52794";
+          '54efc21b-464d-4ae7-93cb-4a44bcb52794';
     if (token) {
       conf.headers.token = token;
     }
     return conf;
   },
   error => {
-    console.error("request错误", JSON.stringify(error));
+    console.error('request错误', JSON.stringify(error));
     VueBus.$emit(REQUEST_ERR, error);
     return Promise.reject(error);
   }
@@ -80,13 +75,13 @@ Axios.interceptors.response.use(
     // 断网 或者 请求超时 状态
     if (!error.response) {
       // 请求超时状态
-      if (error.message.includes("timeout")) {
-        console.log("超时了");
-        VueBus.$emit(GLOBAL_MSG, "请求超时，请检查网络是否连接正常");
+      if (error.message.includes('timeout')) {
+        console.log('超时了');
+        VueBus.$emit(GLOBAL_MSG, '请求超时，请检查网络是否连接正常');
       } else {
         // 可以展示断网组件
-        console.log("断网了");
-        VueBus.$emit(GLOBAL_MSG, "请求失败，请检查网络是否已连接");
+        console.log('断网了');
+        VueBus.$emit(GLOBAL_MSG, '请求失败，请检查网络是否已连接');
       }
     } else {
       const code = error.response.status;
@@ -95,7 +90,7 @@ Axios.interceptors.response.use(
           VueBus.$emit(GLOBAL_MSG, `${code}-${error.response.statusText}`);
       }
     }
-    console.error("response错误", JSON.stringify(error));
+    console.error('response错误', JSON.stringify(error));
     VueBus.$emit(RESPONSE_ERR, error);
     return Promise.reject(error);
   }
@@ -104,7 +99,7 @@ Axios.interceptors.response.use(
 // 对axios的实例重新封装成一个plugin ,方便 Vue.use(xxxx)
 export default {
   install(Vue) {
-    Object.defineProperty(Vue.prototype, "$http", {
+    Object.defineProperty(Vue.prototype, '$http', {
       value: Axios
     });
   },

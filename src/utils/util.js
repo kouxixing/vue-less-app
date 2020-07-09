@@ -1,6 +1,6 @@
 // 处理get请求，传入参数对象拼接
 const formatUrl = (url, query) => {
-  let string = "?";
+  let string = '?';
   Object.keys(query).forEach(key => {
     string += `${key}=${query[key]}&`;
   });
@@ -34,9 +34,7 @@ const local = {
   },
   get(key) {
     if (checkLocalStorage()) {
-      return window.localStorage.getItem(key)
-        ? window.localStorage.getItem(key)
-        : null;
+      return window.localStorage.getItem(key) ? window.localStorage.getItem(key) : null;
     }
     return getCookie(key);
   },
@@ -47,8 +45,7 @@ const local = {
       const exp = new Date();
       exp.setTime(exp.getTime() - 1);
       const cval = getCookie(key);
-      if (cval != null)
-        document.cookie = `${key}=${cval};expires=${exp.toGMTString()}`;
+      if (cval != null) document.cookie = `${key}=${cval};expires=${exp.toGMTString()}`;
     }
   }
 };
