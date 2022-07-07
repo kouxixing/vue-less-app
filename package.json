@@ -20,7 +20,7 @@
     "echarts": "^4.2.1",
     "esri-loader": "^1.4.0",
     "iview": "^3.4.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "postcss-px2rem": "^0.3.0",
     "resize-detector": "^0.2.0",
     "view-design": "^4.1.3",
